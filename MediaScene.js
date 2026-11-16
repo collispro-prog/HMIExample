@@ -61,7 +61,7 @@ class MediaScene extends Scene{
                 this.playButton.html("PLAY");
                 this.isPlaying = false;
             } else {
-                // this.restartContext();
+                this.restartContext();
                 this.radio.play();
                 this.playButton.html("STOP");
                 this.isPlaying = true;
