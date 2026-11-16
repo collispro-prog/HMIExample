@@ -11,6 +11,7 @@ let numberOfWaves;
 
 let taps = new Set([]);
 
+let fullscreenButton;
 let startScreen = true;
 
 async function setup() {
@@ -22,6 +23,11 @@ async function setup() {
     canvas.parent('canvas-container');
 
     img = await loadImage("assets/Gradient.png");
+
+    fullscreenButton = createDiv("Click Here to Continue");
+    fullscreenButton.position(200, 200);
+    fullscreenButton.style("color", "Cornsilk");
+    fullscreenButton.mouseClicked(enterMainMenu);
 
     doAudioConnection();
     text("Double Click To Enter", 100, 100);
@@ -52,10 +58,7 @@ function draw() {
             taps.delete(tap);
         }
     }
-    if (startScreen) {
-        text("Double Click To Continue", 200, 200);
-    }
-    else {
+    if (!startScreen) {
         if (currentScene == mainMenu) {
             switch (selection) {
                 case "Cabin":
@@ -84,9 +87,9 @@ function mousePressed() {
     taps.add(new Ripple(mouseX, mouseY));
 }
 
-function doubleClicked() {
+function enterMainMenu() {
     fullscreen(true);
     startScreen = false;
+    fullscreenButton.hide();
     mainMenu.showScene;
-    return false; //disable default behaviour
 }
