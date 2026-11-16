@@ -21,7 +21,7 @@ async function setup() {
     canvas = createCanvas(displayWidth, displayHeight);
     canvas.parent('canvas-container');
 
-    img = await loadImage("/assets/Gradient.png");
+    img = await loadImage("assets/Gradient.png");
 
     doAudioConnection();
     text("Double Click To Enter", 100, 100);
@@ -86,7 +86,6 @@ function mousePressed() {
 
 function doubleClicked() {
     fullscreen(true);
-    // resizeCanvas(displayWidth, displayHeight);
     startScreen = false;
     mainMenu.showScene;
 }
