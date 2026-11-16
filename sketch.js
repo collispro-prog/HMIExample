@@ -88,4 +88,5 @@ function doubleClicked() {
     fullscreen(true);
     startScreen = false;
     mainMenu.showScene;
+    return false; //disable default behaviour
 }
